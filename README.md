@@ -2,22 +2,22 @@
 
 expagem ("Extensible Page Markup") is an easy to use HTML templating system. Here's how it works:
 
-`say-hello.htmlt` (Template)
+`say-hello.thtml` (Template)
 ```xml
-<args>
+<e-args>
   <arg name="to" internal-name="person-name">Default Name</arg>
-</args>
-<template name="say-hello">
+</e-args>
+<e-template name="say-hello">
   <p>Hello, {person-name}!</p>
-</template>
+</e-template>
 ```
 
-`example.htmle` (Input)
+`example.ehtml` (Input)
 ```html
 <html>
 
 <head>
-  <expagem-template path="./say-hello.htmlt">
+  <e-template path="./say-hello.htmlt">
 </head>
 
 <body>
@@ -43,63 +43,63 @@ expagem ("Extensible Page Markup") is an easy to use HTML templating system. Her
 
 ## Template syntax
 
-Template files end in `.htmlt` and follow the syntax:
+Template files end in `.thtml` and follow the syntax:
 
 ```xml
-<args>
+<e-args>
   <!-- Arguments go here -->
-</args>
-<template name="template-name">
+</e-args>
+<e-template name="template-name">
   <!-- Template goes here -->
-</template>
+</e-template>
 ```
 
 ### Arguments
 
-Denote arguments for the template inside the `args` section. If there are no arguments, you may omit this section.
+Denote arguments for the template inside the `e-args` section. If there are no arguments, you may omit this section.
 
-In the body of the `args` tag, list arguments for the template using the syntax:
+In the body of the `e-args` section, list arguments for the template using the syntax:
 
 ```xml
-<arg name="argument-name" internal-name="optional-internal-name">Default Value</arg>
+<e-arg name="argument-name" internal-name="optional-internal-name">Default Value</arg>
 ```
 
-If `internal-name` is provided, you must use it inside the `template` section instead of the `name`. (`name` will continue to be accessible by users of the template; this is useful when you want a verb as the user-facing name, for example.)
+If `internal-name` is provided, you must use it inside the `e-template` section instead of the `name`. (`name` will continue to be accessible by users of the template; this is useful when you want a verb as the user-facing name, for example.)
 
 ### Children
 
-To insert the template's children in the template, use the `<t-children>` tag.
+To insert the template's children in the template, use the `<e-children>` tag.
 
 ```html
-<template name="template-name">
+<e-template name="template-name">
   <h1>Today's content</h1>
-  <t-children>
+  <e-children>
   <small>&copy; Joe Schmoe</small>
-</template>
+</e-template>
 ```
 
 ### Template
 
 Provide a `name` for the template. It is best practice to use the filename.
 
-In the body of the `template` tag, provide any HTML (zero or more tags). You must include the `template` section even if there are no HTML tags.
+In the body of the `e-template` section, provide any HTML (zero or more tags). You must include the `e-template` section even if there are no HTML tags.
 
 To substitute values in the HTML for the template's arguments, write the argument name surrounded in curly braces (`{` and `}`):
 
 ```html
-<template name="favorite-color">
+<e-template name="favorite-color">
   <p>My favorite color is {color}.</p>
-</template>
+</e-template>
 ```
   
 ## Template usage
 
 ### Importing
 
-You must use the `.htmle` file extension to use expagem in the file. To "import" a template into your HTML, place the following syntax in the `<head>`:
+You must use the `.ehtml` file extension to use expagem in your HTML. To "import" a template into your HTML, place the following syntax in the `<head>`:
 
 ```html
-<expagem-template path="path/to/template.htmlt">
+<e-template path="path/to/template.thtml">
 ```
 
 Paths resolve in the same way as the `src` attribute in `<script>`, `<img>`, etc.
