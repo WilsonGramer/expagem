@@ -21,7 +21,7 @@ expagem ("Extensible Page Markup") is an easy to use HTML templating system. Her
 </head>
 
 <body>
-  <say-hello :to="Joe"/>
+  <say-hello @to="Joe"/>
 </body>
 
 </html>
@@ -106,16 +106,16 @@ Paths resolve in the same way as the `src` attribute in `<script>`, `<img>`, etc
 
 ### Using
 
-Anywhere in the `<body>` of your HTML, add your template in HTML-style syntax, but precede each argument with a colon (`:`):
+Anywhere in the `<body>` of your HTML, add your template in HTML-style syntax, but precede each argument with `@`:
 
 ```html
-<my-template :key="value"/>
+<my-template @key="value"/>
 ```
 
 You may use self-closing syntax if no children are provided. If you provide children, use the standard XML syntax:
 
 ```html
-<my-template :key="value">
+<my-template @key="value">
   <!-- Children go here -->
 </my-template>
 ```
