@@ -84,8 +84,14 @@ Provide a `name` for the template. It is best practice to use the filename.
 
 In the body of the `template` tag, provide any HTML (zero or more tags). You must include the `template` section even if there are no HTML tags.
 
-To substitute values in the HTML for the template's arguments, write the argument name surrounded in curly braces (`{` and `}`).
+To substitute values in the HTML for the template's arguments, write the argument name surrounded in curly braces (`{` and `}`):
 
+```html
+<template name="favorite-color">
+  <p>My favorite color is {color}.</p>
+</template>
+```
+  
 ## Template usage
 
 ### Importing
