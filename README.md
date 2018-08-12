@@ -17,7 +17,7 @@ expagem ("Extensible Page Markup") is an easy to use HTML templating system. Her
 <html>
 
 <head>
-  <e-template path="./say-hello.htmlt"/>
+  <e-template path="./say-hello.thtml"/>
 </head>
 
 <body>
