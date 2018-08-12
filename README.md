@@ -17,7 +17,7 @@ expagem ("Extensible Page Markup") is an easy to use HTML templating system. Her
 <html>
 
 <head>
-  <e-template path="./say-hello.htmlt">
+  <e-template path="./say-hello.htmlt"/>
 </head>
 
 <body>
@@ -97,7 +97,7 @@ To substitute values in the HTML for the template's arguments, write the argumen
 You must use the `.ehtml` file extension to use expagem in your HTML. To "import" a template into your HTML, place the following syntax in the `<head>`:
 
 ```html
-<e-template path="path/to/template.thtml">
+<e-template path="path/to/template.thtml"/>
 ```
 
 Paths resolve in the same way as the `src` attribute in `<script>`, `<img>`, etc.
