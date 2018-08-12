@@ -5,7 +5,7 @@ expagem ("Extensible Page Markup") is an easy to use HTML templating system. Her
 `say-hello.thtml` (Template)
 ```xml
 <e-args>
-  <arg name="to" internal-name="person-name">Default Name</arg>
+  <arg name="person-name">Default Name</arg>
 </e-args>
 <e-template name="say-hello">
   <p>Hello, {person-name}!</p>
@@ -21,7 +21,7 @@ expagem ("Extensible Page Markup") is an easy to use HTML templating system. Her
 </head>
 
 <body>
-  <say-hello @to="Joe"/>
+  <say-hello @person-name="Joe"/>
 </body>
 
 </html>
@@ -61,10 +61,8 @@ Denote arguments for the template inside the `e-args` section. If there are no a
 In the body of the `e-args` section, list arguments for the template using the syntax:
 
 ```xml
-<e-arg name="argument-name" internal-name="optional-internal-name">Default Value</arg>
+<e-arg name="argument-name">Default Value</arg>
 ```
-
-If `internal-name` is provided, you must use it inside the `e-template` section instead of the `name`. (`name` will continue to be accessible by users of the template; this is useful when you want a verb as the user-facing name, for example.)
 
 ### Children
 
